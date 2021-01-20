@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrajectoryCalculator", "TrajectoryCalculator\TrajectoryCalculator.csproj", "{BC0B15D3-3FEA-4504-8375-EAC7AAB8F60E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{37D82EDF-8229-46BE-BAF2-354C99110397}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "Console\ConsoleApp.csproj", "{4C17B5A1-0F52-486B-991C-4598E6C0241E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC0B15D3-3FEA-4504-8375-EAC7AAB8F60E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC0B15D3-3FEA-4504-8375-EAC7AAB8F60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC0B15D3-3FEA-4504-8375-EAC7AAB8F60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC0B15D3-3FEA-4504-8375-EAC7AAB8F60E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C17B5A1-0F52-486B-991C-4598E6C0241E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C17B5A1-0F52-486B-991C-4598E6C0241E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C17B5A1-0F52-486B-991C-4598E6C0241E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C17B5A1-0F52-486B-991C-4598E6C0241E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4C17B5A1-0F52-486B-991C-4598E6C0241E} = {37D82EDF-8229-46BE-BAF2-354C99110397}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F54744F3-FA43-4DEF-AEF5-41699667DE2F}
+	EndGlobalSection
+EndGlobal
