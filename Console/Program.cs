@@ -8,47 +8,40 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
+            var h = Console.WindowHeight;
+            var w = Console.WindowWidth;
+            Rectangle rectangle = new Rectangle(0, 0, w, h);
 
-            float gravity = 9.81f;
-            Vector2 initalVelocity = new Vector2(50, 20);
-            
-            // Kezdő szög. nekünk radián kell a számoláshoz szóval át kell konvetálni
-            // 45* a jelenlegi szögünk
-            double angle = 45 * (180 / Math.PI);
-
-            // The total time in the Air!
-            double totalTimeInAir = (2 * initalVelocity.Y * Math.Sin(angle)) / gravity;
-
-            // Max height!
-            double height = Math.Pow(initalVelocity.Y, 2) * Math.Pow(Math.Sin(angle), 2);
-
-            Vector2 Position = new Vector2(0, 0);
-            for (double t = 0; t < 1000; t += 0.05)
+            while (true)
             {
-                var h = Console.WindowHeight;
-                var w = Console.WindowWidth;
-               
-                // Dont forget to add the inital position.
-                //x = Vx * t
-                //y = Vy * t - g * t² 
-                double x = initalVelocity.X * t;
-                double y = initalVelocity.Y * t - gravity * Math.Pow(t, 2);
-                var currentPosition = new Vector2((float)x, (float)y);
+                Console.Clear();
+                Console.WriteLine("Kérlek add meg a szöget(fokban)!");
+                int degree = int.Parse(Console.ReadLine());
+                Console.WriteLine("Kérlek add meg az irányvektort!");
+                Console.Write("Hosszúság: ");
+                int x = int.Parse(Console.ReadLine());
+                Console.Write("Magasság: ");
+                int y = int.Parse(Console.ReadLine());
 
-                Rectangle rectangle = new Rectangle(0, 0, w, h);
-                if (rectangle.Intersects((int)x, (int)y))
+                // 20 10 45
+                foreach (Vector2 position in Trajectory.CalculatePosition(new Vector2(x, y), degree)
                 {
-                    // The problem is that the vector2(0, 0) position is the top left corner and so our path is upsidedown. So we need to rotate it.
-                    // This is a fast solution only. In a real application we using matrixes. (Translate and scale)
-                    var result = new Vector2((float)x, (float)y);
-                    result -= new Vector2(0, h);
-                    result *= new Vector2(1, -1);
+                    if (rectangle.Intersects((int)position.X, (int)position.Y))
+                    {
+                        // The problem is that the vector2(0, 0) position is the top left corner and so our path is upsidedown. So we need to rotate it.
+                        // This is a fast solution only. In a real application we using matrixes. (Translate and Scale)
+                        var result = new Vector2((float)position.X, (float)position.Y);
+                        result -= new Vector2(0, h);
+                        result *= new Vector2(1, -1);
 
-                    Console.SetCursorPosition((int)result.X, (int)result.Y);
-                    Console.Write('#');
+                        Console.SetCursorPosition((int)result.X, (int)result.Y);
+                        Console.Write('#');
+                    }
                 }
+                Console.SetCursorPosition(0, h);
+                Console.WriteLine("ENTER az újrakezdéshez.");
+                Console.ReadLine();
             }
-            Console.ReadLine();
         }
     }
 }
