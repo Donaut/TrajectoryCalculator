@@ -24,7 +24,7 @@ namespace ConsoleApp
                 int y = int.Parse(Console.ReadLine());
 
                 // 20 10 45
-                foreach (Vector2 position in Trajectory.CalculatePosition(new Vector2(x, y), degree)
+                foreach (Vector2 position in Trajectory.CalculatePosition(new Vector2(x, y), degree))
                 {
                     if (rectangle.Intersects((int)position.X, (int)position.Y))
                     {
